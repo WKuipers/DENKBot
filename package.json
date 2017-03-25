@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/WKuipers/denkbot/issues"
   },
-  "homepage": "https://github.com/WKuipers/denkbot#readme"
+  "homepage": "https://github.com/WKuipers/denkbot#readme",
+  "dependencies": {
+    "async": "^2.1.5",
+    "discord.js": "^11.0.0",
+    "uws": "^0.12.0"
+  }
 }
