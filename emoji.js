@@ -40,8 +40,11 @@ const add = (message) => {
     })
     .then(() => {
       fs.writeFile(`emoji/${guildid}.json`,
-        JSON.stringify(emoji[guildid]), console.error,
-    );
+        JSON.stringify(emoji[guildid]), (err) => {
+          if (err) {
+            console.error(err);
+          }
+        });
     })
     .catch((error) => {
       console.log(error);
@@ -66,8 +69,7 @@ exports.messageHandler = (message) => {
     .filter(trigger => content.toLowerCase().includes(trigger));
   if (triggersFound.length > 0) {
     triggersFound.map(trigger =>
-      message.react(emoji[guildid][trigger]),
-    )
+      message.react(emoji[guildid][trigger]))
       .reduce((promise, next) => promise.then(next), Promise.resolve());
   }
 };

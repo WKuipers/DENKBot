@@ -34,8 +34,11 @@ function add(message) {
   return message.reply(`added a reponse for ${triggerResp[0]}.`)
       .then(() => {
         fs.writeFile(`triggers/${guildid}.json`,
-          JSON.stringify(triggers[guildid]), console.error,
-        );
+          JSON.stringify(triggers[guildid]), (err) => {
+            if (err) {
+              console.error(err);
+            }
+          });
       });
 }
 
