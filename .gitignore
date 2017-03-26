@@ -1,4 +1,4 @@
 ENVIRONMENT
-triggers
-emoji
+triggers/*
+emoji/*
 node_modules
